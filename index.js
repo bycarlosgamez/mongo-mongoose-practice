@@ -10,10 +10,26 @@ mongoose
   });
 
 const pedalSchema = new mongoose.Schema({
-  name: String,
-  brand: String,
-  knobs: Number,
-  type: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  brand: {
+    type: String,
+    required: true,
+  },
+  knobs: {
+    type: Number,
+    required: true,
+  },
+  effectType: {
+    type: String,
+    required: true,
+  },
+  onSale: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const Pedal = mongoose.model("Pedal", pedalSchema);
@@ -22,5 +38,5 @@ const smallStone = new Pedal({
   name: "Small Stone",
   brand: "Electro Harmonix",
   knobs: 1,
-  type: "phaser",
+  effectType: "phaser",
 });
